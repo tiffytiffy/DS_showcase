@@ -13,6 +13,11 @@ q8_single = q8[(q8['Date'] == match_date)]
 q8_single=q8_single.drop(['Deaths'], axis=1)
 
 
+#drop Death column
+
+q8_single=q8_single.drop(['Deaths'], axis=1)
+
+
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -22,4 +27,13 @@ import seaborn as sns
 sns.regplot('Cases', 'Index', data=q8_single, scatter=True, fit_reg=True)
 plt.xlim(1e0, 1e8)
 plt.xscale('log')
+plt.show()
+
+
+
+
+
+q8_single.plot.scatter(x='Cases',y='Index')
+plt.xscale('log')
+plt.xlim(1e0, 1e8)
 plt.show()
